@@ -1,3 +1,1 @@
-{
-	"id": "summarizer-now2"
-}
+{"id": "summarizer-c9bi"}
