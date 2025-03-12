@@ -1,42 +1,46 @@
 import { useState } from 'react';
 import { Box, TextField, Button } from '@mui/material';
-import { createPing } from '../lib/api';
+import { addSite } from '../lib/api';
 
 interface AddMonitorFormProps {
   onSuccess: () => void;
 }
 
 export default function AddMonitorForm({ onSuccess }: AddMonitorFormProps) {
-  const [name, setName] = useState('');
   const [url, setUrl] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await createPing({ name, url });
-    setName('');
-    setUrl('');
-    onSuccess();
+    try {
+      setError(null);
+      await addSite({ url });
+      setUrl('');
+      onSuccess();
+    } catch (error) {
+      console.error('Error adding site:', error);
+      setError('Failed to add site. Please try again.');
+    }
   };
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ mb: 4 }}>
       <TextField
-        label="Monitor Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        sx={{ mr: 2 }}
-        required
-      />
-      <TextField
-        label="URL"
+        label="Site URL"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
         sx={{ mr: 2 }}
         required
+        placeholder="https://example.com"
       />
       <Button type="submit" variant="contained">
-        Add Monitor
+        Add Site to Monitor
       </Button>
+      {error && (
+        <Box color="error.main" sx={{ mt: 1 }}>
+          {error}
+        </Box>
+      )}
     </Box>
   );
 }
