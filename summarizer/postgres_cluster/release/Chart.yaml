@@ -1,0 +1,13 @@
+apiVersion: v2
+name: postgres-cluster
+description: PostgreSQL database for event service
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
+maintainers:
+  - name: "Travers La Ville"
+    
+  - name: "David McCaffrey"
+    
+
