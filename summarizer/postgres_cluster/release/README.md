@@ -8,21 +8,29 @@ A Helm chart for deploying PostgreSQL database for the event service.
 - Helm 3.0+
 - Rancher Desktop
 
-## Installing the Chart
+# Installing the Chart
 
+
+## Install the chart
+`make install`
+
+## Check status
+`make status`
+
+you should see an ouput like:
 ```
-# Install the chart
-make install
-
-# Check status
-make status
+pod/postgres-cluster-...    1/1     Running
+service/postgres-cluster    ClusterIP   5432/TCP
+```
+## Forward the port:
+`kubectl port-forward svc/postgres-cluster 5432:5432 -n event-system`
 
 # Test connection
-kubectl port-forward svc/postgres-cluster 5432:5432 -n event-system
+`kubectl port-forward svc/postgres-cluster 5432:5432 -n event-system`
 
 # Connect to database
-psql -h localhost -U eventuser -d eventdb
-```
+`psql -h localhost -U eventuser -d eventdb`
+
 
 ## Configuration
 
