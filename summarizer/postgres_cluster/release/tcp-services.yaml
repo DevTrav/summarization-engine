@@ -1,0 +1,8 @@
+# NGINX Ingress Controller
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tcp-services
+  namespace: ingress-nginx
+data:
+  "5432": "event-system/postgres-cluster:5432"
