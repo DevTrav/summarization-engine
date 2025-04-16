@@ -18,3 +18,7 @@ postgresql:
 
 nameOverride: ""
 fullnameOverride: ""
+
+# Adminer toggle
+adminer:
+  enabled: true
