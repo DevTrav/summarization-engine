@@ -1,0 +1,19 @@
+ingressClass:
+  enabled: true
+  isDefaultClass: true
+
+service:
+  type: NodePort
+
+additionalArguments:
+  - "--entryPoints.postgres.address=:5432"
+  - "--entryPoints.postgres.forwardedHeaders.insecure=true"
+  - "--entryPoints.postgres.transport.lifecycle.requestAcceptGraceTimeout=42s"
+
+ports:
+  postgres:
+    port: 5432
+    expose:
+      enabled: true         # ✅ this is an object with `enabled: true`
+    exposedPort: 5432
+    protocol: TCP
