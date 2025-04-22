@@ -1,12 +1,12 @@
-{{- if .Values.adminer.enabled }}
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: adminer-ingress
+  namespace: event-system         # ← Add this line if it's missing
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
+  ingressClassName: traefik       # ← Also important
   rules:
     - host: adminer.localtest.me
       http:
@@ -18,4 +18,3 @@ spec:
                 name: adminer
                 port:
                   number: 8080
-{{- end}}
