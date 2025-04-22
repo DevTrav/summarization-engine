@@ -1,3 +1,12 @@
 [submodule "upstream/summarization-engine"]
 	path = upstream/summarization-engine
 	url = https://github.com/DevTrav/summarization-engine.git
+[submodule "summarization-engine/upstream"]
+	path = summarization-engine/upstream
+	url = https://github.com/traefik/traefik-helm-chart.git
+[submodule "upstream/upstream"]
+	path = upstream/upstream
+	url = https://github.com/traefik/traefik-helm-chart.git
+[submodule "upstream/traefik-helm-chart/traefik-helm-chart"]
+	path = upstream/traefik-helm-chart/traefik-helm-chart
+	url = https://github.com/traefik/traefik-helm-chart.git
