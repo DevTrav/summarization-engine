@@ -10,7 +10,7 @@ service:
   type: ClusterIP
   port: 5432
 
-# Add this postgresql section
+# Add this postgresql sing Admiection
 postgresql:
   username: "eventuser"
   password: "eventpass"
@@ -19,6 +19,6 @@ postgresql:
 nameOverride: ""
 fullnameOverride: ""
 
-# Adminer toggle
-adminer:
-  enabled: true
+entryPoints:
+  postgres:
+    address: ":5432"
