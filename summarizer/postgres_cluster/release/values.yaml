@@ -1,0 +1,24 @@
+# Default values for postgres-cluster
+replicaCount: 1
+
+image:
+  repository: postgres
+  tag: "15"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5432
+
+# Add this postgresql sing Admiection
+postgresql:
+  username: "eventuser"
+  password: "eventpass"
+  database: "event-db"
+
+nameOverride: ""
+fullnameOverride: ""
+
+entryPoints:
+  postgres:
+    address: ":5432"

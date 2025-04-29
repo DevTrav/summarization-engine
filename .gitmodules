@@ -1,0 +1,3 @@
+[submodule "upstream/traefik-helm-chart/traefik-helm-chart"]
+	path = upstream/traefik-helm-chart/traefik-helm-chart
+	url = https://github.com/traefik/traefik-helm-chart.git
